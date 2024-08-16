@@ -5,6 +5,9 @@ namespace App\Models;
 use App\Traits\HasFormattedDatesTrait;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
+/**
+ * @mixin IdeHelperTicketUser
+ */
 class TicketUser extends Pivot
 {
     use HasFormattedDatesTrait;

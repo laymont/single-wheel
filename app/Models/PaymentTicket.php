@@ -6,6 +6,9 @@ use App\Traits\HasFormattedDatesTrait;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
+/**
+ * @mixin IdeHelperPaymentTicket
+ */
 class PaymentTicket extends Pivot
 {
     use HasFormattedDatesTrait;

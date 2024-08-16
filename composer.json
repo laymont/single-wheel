@@ -12,6 +12,7 @@
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
         "opcodesio/log-viewer": "^3.10",
+        "predis/predis": "^2.0",
         "spatie/laravel-permission": "^6.9",
         "tightenco/ziggy": "^2.0"
     },
@@ -38,7 +39,8 @@
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "Database\\Seeders\\": "database/seeders/",
+            "App\\Helpers\\": "app/Helpers/"
         }
     },
     "autoload-dev": {

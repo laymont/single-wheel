@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Helpers;
-
-class TicketByUser
-{
-
+if (! function_exists('ticketByUser')) {
+    function ticketByUser($user) {
+        //
+    }
 }

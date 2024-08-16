@@ -12,9 +12,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- *
- *
- * @mixin IdeHelperRaffle
  * @property int $id
  * @property string $identification
  * @property string $name
@@ -50,6 +47,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Eloquent\Builder|Raffle withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Raffle withoutTrashed()
  * @mixin Eloquent
+ * @mixin IdeHelperRaffle
  */
 class Raffle extends Model
 {

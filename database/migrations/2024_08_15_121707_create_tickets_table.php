@@ -19,6 +19,8 @@ return new class extends Migration
             $table->boolean('cancelled')->default(false)->index();
             $table->timestamps();
             $table->softDeletes();
+            $table->index('raffle_id');
+            $table->unique(['raffle_id', 'number']);
         });
     }
 

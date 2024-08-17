@@ -82,6 +82,11 @@ class Raffle extends Model
         ];
     }
 
+    public function tickets(): HasMany
+    {
+        return $this->hasMany(Ticket::class, 'raffle_id', 'id');
+    }
+
     public function getCreatedAtAttribute(): array
     {
         return $this->createdBy->only('id', 'name');

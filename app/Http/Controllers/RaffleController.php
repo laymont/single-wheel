@@ -4,16 +4,30 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreRaffleRequest;
 use App\Http\Requests\UpdateRaffleRequest;
+use App\Http\Resources\RaffleResource;
 use App\Models\Raffle;
+use App\Repositories\Interfaces\RaffleRepositoryInterface;
+use Illuminate\Http\Request;
 
 class RaffleController extends Controller
 {
+    protected RaffleRepositoryInterface $raffleRepository;
+
+    public function __construct(RaffleRepositoryInterface $raffleRepository)
+    {
+        $this->raffleRepository = $raffleRepository;
+    }
+
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request): \Inertia\Response
     {
-        //
+        $raffles = $this->raffleRepository->all($request);
+        $resource = RaffleResource::collection($raffles);
+        return $this->sendInertiaResponse('Raffles/Index', [
+            'resource' => $resource,
+        ]);
     }
 
     /**
@@ -35,9 +49,15 @@ class RaffleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Raffle $raffle)
+    public function show($id)
     {
-        //
+        $raffle = $this->raffleRepository->find($id);
+
+        if (!$raffle) {
+            abort(404);
+        }
+
+        return view('raffles.show', compact('raffle'));
     }
 
     /**
